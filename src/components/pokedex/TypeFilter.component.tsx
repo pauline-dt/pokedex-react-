@@ -22,12 +22,13 @@ const TypeFilter = ({ selectedTypes, onToggleType }: TypeFilterProps) => {
           return (
             <button
               key={type}
+              type="button"
               onClick={() => onToggleType(type)}
               disabled={!isSelected && isLimitReached}
-              className={`cursor-pointer rounded-full px-3 py-1 text-xs font-semibold transition-opacity disabled:cursor-not-allowed disabled:opacity-40 ${
+              className={`cursor-pointer border-2 border-slate-900 px-3 py-2 text-xs font-black uppercase shadow-[3px_3px_0_#111827] transition-all disabled:cursor-not-allowed disabled:opacity-30 ${
                 isSelected
-                  ? `${TYPE_COLORS[type]} text-white`
-                  : "border border-gray-300 bg-white text-gray-600 hover:text-gray-900"
+                  ? `${TYPE_COLORS[type]} translate-y-[2px] text-white shadow-[1px_1px_0_#111827]`
+                  : "bg-white text-slate-700 hover:-translate-y-0.5 hover:bg-slate-100"
               }`}
             >
               {TYPE_LABELS[type]}
@@ -36,10 +37,10 @@ const TypeFilter = ({ selectedTypes, onToggleType }: TypeFilterProps) => {
         })}
       </div>
 
-      <p className="mt-2 text-xs text-gray-400">
+      <p className="mt-3 text-[10px] font-bold uppercase tracking-wider text-slate-500">
         {isLimitReached
-          ? "Deux types au maximum. Désélectionnez-en un pour en choisir un autre."
-          : `Deux types au maximum, cumulables.`}
+          ? "Deux types maximum. Désélectionnez-en un pour changer."
+          : "Deux types au maximum, cumulables."}
       </p>
     </div>
   );

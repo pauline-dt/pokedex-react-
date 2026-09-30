@@ -17,14 +17,14 @@ const RegionFilter = ({
         return (
           <button
             key={region.generation}
-            // Recliquer sur la région active la désélectionne.
+            type="button"
             onClick={() =>
               onSelectRegion(isSelected ? null : region.generation)
             }
-            className={`cursor-pointer rounded-full px-3 py-1 text-xs font-semibold transition-colors ${
+            className={`cursor-pointer border-2 border-slate-900 px-3 py-2 text-xs font-black uppercase transition-all ${
               isSelected
-                ? "bg-red-600 text-white"
-                : "border border-gray-300 bg-white text-gray-600 hover:text-gray-900"
+                ? "translate-y-[2px] bg-yellow-300 text-slate-900 shadow-[1px_1px_0_#111827]"
+                : "bg-white text-slate-700 shadow-[3px_3px_0_#111827] hover:-translate-y-0.5 hover:bg-slate-100"
             }`}
           >
             {region.label}

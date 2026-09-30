@@ -11,8 +11,6 @@ type PokedexFiltersProps = {
   onToggleType: (type: string) => void;
 };
 
-// Les trois filtres et leurs intitulés. Ce composant n'a aucun état : il
-// reçoit les valeurs du hook `usePokedexFilters` et rend les callbacks.
 const PokedexFilters = ({
   search,
   onSearchChange,
@@ -22,11 +20,17 @@ const PokedexFilters = ({
   onToggleType,
 }: PokedexFiltersProps) => {
   return (
-    <div className="mb-5 flex flex-col gap-4">
-      <SearchInput search={search} onSearchChange={onSearchChange} />
+    <div className="space-y-5">
+      <SearchInput
+        search={search}
+        onSearchChange={onSearchChange}
+      />
 
       <div>
-        <p className="mb-2 text-xs font-semibold text-gray-500">Région</p>
+        <p className="mb-2 text-[10px] font-black uppercase tracking-[0.25em] text-slate-700">
+          Région
+        </p>
+
         <RegionFilter
           selectedRegion={selectedRegion}
           onSelectRegion={onSelectRegion}
@@ -34,8 +38,18 @@ const PokedexFilters = ({
       </div>
 
       <div>
-        <p className="mb-2 text-xs font-semibold text-gray-500">Types</p>
-        <TypeFilter selectedTypes={selectedTypes} onToggleType={onToggleType} />
+        <p className="mb-2 text-[10px] font-black uppercase tracking-[0.25em] text-slate-700">
+          Types
+        </p>
+
+        <TypeFilter
+          selectedTypes={selectedTypes}
+          onToggleType={onToggleType}
+        />
+
+        <p className="mt-3 text-[10px] font-bold uppercase tracking-wider text-slate-500">
+          Deux types au maximum, cumulables.
+        </p>
       </div>
     </div>
   );

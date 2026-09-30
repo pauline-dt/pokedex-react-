@@ -11,14 +11,20 @@ const PokemonGrid = ({ pokemons }: PokemonGridProps) => {
 
   if (pokemons.length === 0) {
     return (
-      <p className="rounded-2xl border border-dashed border-gray-200 px-6 py-16 text-center text-sm text-gray-400">
-        Aucun Pokémon ne correspond à votre recherche.
-      </p>
+      <div className="pokedex-panel p-8 text-center">
+        <p className="text-sm font-black uppercase tracking-widest text-slate-700">
+          Aucun Pokémon détecté
+        </p>
+
+        <p className="mt-2 text-xs text-slate-500">
+          Modifiez vos filtres pour relancer le scan.
+        </p>
+      </div>
     );
   }
 
   return (
-    <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 lg:grid-cols-6">
+    <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
       {pokemons.map((pokemon) => (
         <PokemonCard
           key={pokemon.id}
